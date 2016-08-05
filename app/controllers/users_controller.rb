@@ -49,14 +49,4 @@ post '/users/profile' do
   Post.create(content: params[:content], user_id: @user.id)
   redirect to('users/profile')
 end
- # put '/users' do
- # @user = User.find(params[:id])
- # @user.update(params[:user)
- # redirect to("/user/#{@user.id}")
- # end
 
- # delete '/users' do
- # @user = User.find(params[:id])
- # @user.destroy
- # redirect to('/user')
- # end
