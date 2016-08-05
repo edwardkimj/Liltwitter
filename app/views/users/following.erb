@@ -1,0 +1,5 @@
+
+<h1><%= @user.user_name%>, here are all the users you're subscribed to! </h1>
+<p><% @subscribers.each do |subscriber| %>
+<%= subscriber.user_name %> <br>
+<% end %></p>
