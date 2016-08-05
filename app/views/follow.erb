@@ -1,0 +1,6 @@
+<h1>People followed</h1>
+<ul>
+	<%@follow.each do |person|%>
+	<li><a href="/follow/<%=person%>"><%=User.name.find_by(id: person)%></a></li>
+	<%end%>
+</ul>
