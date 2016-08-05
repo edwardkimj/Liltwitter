@@ -1,0 +1,16 @@
+<% if current_user %>
+ <a href="/users/<%= current_user.id %>">Go to your profile</a>
+
+  <form action="/sessions" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="logout">
+  </form>
+
+<% else %>
+  <a href="/users/new">Register</a>
+  <form action="/sessions" method="POST">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="password">
+  <input type="submit" value="submit">
+  </form>
+  <% end %>

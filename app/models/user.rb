@@ -1,5 +1,21 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
- # has_many :posts
+ include Bcrypt
+
+  def password
+  @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  def authenticate(input_password)
+    self.password == input_password
+  end
+
 
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "subscriber_id", dependent: :destroy
