@@ -14,7 +14,7 @@ post '/sessions' do
  p @user = User.find_by_email(params[:email])
   if @user && @user.authenticate(params[:password])
     session[:id] = @user.id
-    redirect "/user/#{@user.id}"
+    redirect "/users/#{@user.id}"
   else
     @errors = ["Login incorrect, please try again!"]
     erb :"users/new"

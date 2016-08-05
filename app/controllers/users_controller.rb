@@ -9,6 +9,9 @@ get '/users' do
 
  get '/users/:id' do
    @user = User.find(params[:id])
+   @num_subscribers = @user.subscribers.count
+   @subscribing_to = @user.subscribing_to.count
+   @posts = @user.posts
    erb :'users/show'
  end
 

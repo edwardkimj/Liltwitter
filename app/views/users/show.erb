@@ -1,4 +1,14 @@
 <h1> Hey <%= @user.user_name %>! Welcome to your Profile Page!</h1>
 
+  <form action="/sessions" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="logout">
+  </form>
 
+<p> FOLLOWERS: <%= @num_subscribers %></p>
+<p> FOLLOWING: <%= @subscribing_to %></p>
+<h2>Here are all your tweets!</h2>
+<p><% @posts.each do |post| %>
+<%= post.content %><br>
+<% end %></p>
 
