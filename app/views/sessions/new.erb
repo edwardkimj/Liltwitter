@@ -1,5 +1,5 @@
 <% if current_user %>
- <a href="/users/<%= current_user.id %>">Go to your profile</a>
+ <a href="/users/profile">Go to your profile</a>
 
   <form action="/sessions" method="POST">
   <input type="hidden" name="_method" value="DELETE">

@@ -7,8 +7,8 @@ get '/users' do
   erb :'users/new'
  end
 
- get '/users/:id' do
-   @user = User.find(params[:id])
+ get '/users/profile' do
+   @user = current_user
    @num_subscribers = @user.subscribers.count
    @subscribing_to = @user.subscribing_to.count
    @posts = @user.posts
@@ -32,6 +32,23 @@ get '/users' do
   end
  end
 
+get '/users/followers' do
+  @user = current_user
+  @subscribers =  current_user.subscribers
+  erb :'users/followers'
+end
+
+get '/users/following' do
+  @user = current_user
+  @subscribers =  current_user.subscribing_to
+  erb :'users/following'
+end
+
+post '/users/profile' do
+  @user = current_user
+  Post.create(content: params[:content], user_id: @user.id)
+  redirect to('users/profile')
+end
  # put '/users' do
  # @user = User.find(params[:id])
  # @user.update(params[:user)

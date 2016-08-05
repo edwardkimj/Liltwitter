@@ -5,8 +5,15 @@
   <input type="submit" value="logout">
   </form>
 
-<p> FOLLOWERS: <%= @num_subscribers %></p>
-<p> FOLLOWING: <%= @subscribing_to %></p>
+<p> <a href="/users/followers"> FOLLOWERS:</a> <%= @num_subscribers %></p>
+<p> <a href="/users/following"> FOLLOWING:</a><%= @subscribing_to %></p>
+
+<form action="/users/profile" method="POST">
+<label>Add tweet:</label>
+ <input type="text" name="content" placeholder="Your tweet here">
+ <input type="submit" value="tweet">
+</form>
+
 <h2>Here are all your tweets!</h2>
 <p><% @posts.each do |post| %>
 <%= post.content %><br>
