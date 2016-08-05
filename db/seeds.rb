@@ -1,7 +1,7 @@
 require 'faker'
 
 30.times do |user|
-    User.create(user_name: Faker::Name.name, email: Faker::Internet.email, password_hash: "yes" )
+    User.create(user_name: Faker::Name.name, email: Faker::Internet.email, password: "yes" )
   end
 
 

@@ -18,6 +18,7 @@ get '/users' do
  # end
 
  post '/users' do
+  p params
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
